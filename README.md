@@ -51,4 +51,4 @@ ln -s ~/sf-food-trucks/solr-conf ~/solr/data/food-trucks
 - run `npm install` inside node project
 - run `npm run solr-index` to index data from [DataSF](http://www.datasf.org/): [Food
 Trucks](https://data.sfgov.org/Permitting/Mobile-Food-Facility-Permit/rqzj-sfat)
-- run `npm serve` to launch website in your default browser
+- run `npm start` or `npm run serve` to launch website in your default browser

@@ -428,7 +428,6 @@ gulp.task('build', cb => runSequence(
     'copy:extras',
     'copy:assets',
     'copy:fonts:dist',
-    'copy:sw.js',
 
     'copy:server',
     'webpack:dist',
