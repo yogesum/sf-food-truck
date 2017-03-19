@@ -125,6 +125,9 @@
     "test": "gulp test",
     "update-webdriver": "node node_modules/protractor/bin/webdriver-manager update",
     "start": "node server",
+    "serve": "gulp serve",
+    "solr-install": "bash solr-install.sh",
+    "solr-index": "node solr-index",
     "build": "gulp build",
     "lint": "gulp lint:scripts --fail",
     "validate": "npm ls"
