@@ -1,0 +1,24 @@
+nav.navbar.navbar-white
+  .navbar-header
+    button.navbar-toggle(
+      type='button'
+      ng-click='$ctrl.collapse = !$ctrl.collapse'
+      aria-expanded='false'
+    )
+      span.sr-only Toggle navigation
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+
+    a.navbar-brand(href='/')
+      img(src='/assets/images/logo.svg')
+      span Food Trucks
+
+  .collapse.navbar-collapse(uib-collapse='$ctrl.collapse')
+    form.navbar-form.navbar-left: .form-group
+      input.form-control(type='text' placeholder='Search...')
+
+    ul.nav.navbar-nav.navbar-right
+      li: a(ui-sref='about') About
+
+.app(ui-view='')
