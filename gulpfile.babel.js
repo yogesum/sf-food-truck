@@ -250,7 +250,7 @@ gulp.task('lint:scripts:serverTest', () => gulp
 gulp.task('clean:tmp', () => del(['.tmp/**/*'], { dot: true }));
 
 gulp.task('start:client', cb => whenServerReady(() => {
-  open('127.0.0.1:3000');
+  open('http://localhost:3000');
   cb();
 }));
 

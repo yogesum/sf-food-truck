@@ -2,12 +2,14 @@
  * Main application routes
  */
 
-import errors from './components/errors';
 import path from 'path';
+import foodtrucks from './api/foodtrucks';
+import errors from './components/errors';
 
 export default function setupRoutes(app) {
   // Insert routes below
-  // app.use('/api/things', require('./api/thing'));
+  app.use('/api/foodtrucks', foodtrucks);
+
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
    .get(errors[404]);

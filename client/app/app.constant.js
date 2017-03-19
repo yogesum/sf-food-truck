@@ -5,7 +5,7 @@ const constants = angular
   .module('foodApp.constants', [])
   .constant('moment', moment)
   .constant('urls', {
-    API_SERVER: '127.0.0.1:3001',
+    API_SERVER: 'http://localhost:3001/api',
   });
 
 export default constants.name;

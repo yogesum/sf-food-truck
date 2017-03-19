@@ -1,4 +1,4 @@
-nav.navbar.navbar-white
+nav.navbar.navbar-default.navbar-fixed-top: .container-fluid
   .navbar-header
     button.navbar-toggle(
       type='button'
@@ -16,9 +16,54 @@ nav.navbar.navbar-white
 
   .collapse.navbar-collapse(uib-collapse='$ctrl.collapse')
     form.navbar-form.navbar-left: .form-group
-      input.form-control(type='text' placeholder='Search...')
+      input.form-control(
+        type='text'
+        placeholder='Search...'
+        ng-model='$ctrl.params.q'
+        ng-model-options='{debounce:400}'
+        ng-change='$ctrl.reset();$ctrl.setMarkers(true)')
 
     ul.nav.navbar-nav.navbar-right
-      li: a(ui-sref='about') About
+      li: a(href='') About
 
-.app(ui-view='')
+.h-full.col-sm-3.no-padder.hidden-xs(style='display: flex; flex-direction: column')
+  div(style='height:50px;')
+  .h-full(style='flex:1; overflow-y:scroll' when-scrolled='$ctrl.setMarkers()')
+    .alert.alert-danger(ng-if='$ctrl.error' ng-bind='$ctrl.error')
+    .text-right: em
+      small(ng-bind='"About "')
+      small(ng-bind='$ctrl.numFound')
+      small(ng-bind='" results "')
+
+    .panel.panel-default(ng-repeat='truck in $ctrl.trucks')
+      .panel-body
+        h4
+          div(ng-bind='truck.applicant')
+          small(ng-bind='truck.facilitytype')
+
+        h5.text-left(ng-bind='truck.address')
+
+        span(
+          ng-repeat='food in truck.fooditems track by $index'
+          ng-if='truck.showmore || $index <= 4'
+        )
+          em(ng-bind='food')
+          span(ng-if='!$last' ng-bind='","')
+          span(ng-bind='" "')
+
+        a(
+          href=''
+          ng-if='truck.fooditems.length > 4'
+          ng-click='truck.showmore = !truck.showmore'
+        )
+          span(ng-if='!truck.showmore') +&nbsp;show&nbsp;more
+          span(ng-if='truck.showmore') -&nbsp;show&nbsp;less
+
+        .clearfix
+          small.pull-left(ng-bind='"Distance: " + truck.distance.toFixed(3) + " KM"')
+          small.pull-right(ng-bind='truck.status')
+
+
+.h-full.col-sm-9.no-padder(style='display: flex; flex-direction: column')
+  div(style='height:50px;')
+  #map.h-full(style='flex:1')
