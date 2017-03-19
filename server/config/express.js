@@ -6,6 +6,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import errorHandler from 'errorhandler';
 import path from 'path';
+import cors from 'cors';
 import config from './environment';
 
 export default function expressConfig(app) {
@@ -15,6 +16,7 @@ export default function expressConfig(app) {
     app.use(express.static(path.join(config.root, '.tmp')));
   }
 
+  app.use(cors());
   app.set('appPath', path.join(config.root, 'client'));
   app.use(express.static(app.get('appPath')));
   app.use(bodyParser.urlencoded({ extended: false }));

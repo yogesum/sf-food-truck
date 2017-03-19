@@ -3,4 +3,7 @@
     "airbnb/base",
     "angular"
   ],
+  "rules": {
+    "angular/no-service-method": "off"
+  }
 }

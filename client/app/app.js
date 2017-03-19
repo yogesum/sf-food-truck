@@ -12,14 +12,18 @@ import uiBootstrap from 'angular-ui-bootstrap';
 import { routeConfig } from './app.config';
 
 import AppComponent from './app.component';
+import AppService from './app.service';
 import constants from './app.constant';
+
+import whenScrolled from '../components/when-scrolled';
 
 angular
   .module('foodApp', [
     ngAnimate, ngSanitize, uiRouter, uiBootstrap,
-    constants,
+    constants, whenScrolled,
   ])
   .component('foodApp', AppComponent)
+  .service('App', AppService)
   .config(routeConfig);
 
 angular

@@ -16,7 +16,11 @@ $fa-font-path: "/assets/fonts/font-awesome";
   padding: 0.2em 0;
 }
 
-.navbar-white {
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-default {
   background-color: #fff;
   border-color: #e2e2e2;
 }
@@ -36,6 +40,17 @@ $fa-font-path: "/assets/fonts/font-awesome";
   .navbar-form input.form-control {
     min-width: 400px;
   }
+}
+
+html,
+body,
+food-app,
+.h-full {
+  height: 100%;
+}
+
+.no-padder {
+  padding: 0 !important;
 }
 
 // Component styles are injected through grunt
